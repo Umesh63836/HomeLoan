@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HomeLoanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmailID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CustomerDocuments" Relationship="Self.FK__CustomerD__Admin__398D8EEE" FromRole="Admin" ToRole="CustomerDocument" />
+    <NavigationProperty Name="LoanAccounts" Relationship="Self.FK__LoanAccou__Admin__182C9B23" FromRole="Admin" ToRole="LoanAccount" />
+    <NavigationProperty Name="TrackStatus" Relationship="Self.FK__TrackStat__Admin__1B0907CE" FromRole="Admin" ToRole="TrackStatus" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="EmailID" />
+    </Key>
+    <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Contact" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="CustomerApplications" Relationship="Self.FK__CustomerA__Email__1273C1CD" FromRole="Customer" ToRole="CustomerApplication" />
+  </EntityType>
+  <EntityType Name="CustomerApplication">
+    <Key>
+      <PropertyRef Name="ApplicationID" />
+    </Key>
+    <Property Name="ApplicationID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nationality" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AadharNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PanNo" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PropertyLocation" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PropertyName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EstimatedAmount" Type="Double" Nullable="false" />
+    <Property Name="Type_Of_Employment" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RetirementAge" Type="Int32" Nullable="false" />
+    <Property Name="OrganizationType" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmployerName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MonthlyIncome" Type="Double" Nullable="false" />
+    <Property Name="Current_EMI" Type="Double" Nullable="false" />
+    <Property Name="Personal_Expenses" Type="Double" Nullable="false" />
+    <Property Name="InterestRate" Type="Double" Nullable="false" />
+    <Property Name="Tenure" Type="Int32" Nullable="false" />
+    <Property Name="DownPayment" Type="Double" Nullable="false" />
+    <Property Name="LoanAmount" Type="Double" Nullable="false" />
+    <Property Name="AppointmentDateTentative" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__CustomerA__Email__1273C1CD" FromRole="CustomerApplication" ToRole="Customer" />
+    <NavigationProperty Name="CustomerDocument" Relationship="Self.FK__CustomerD__Appli__38996AB5" FromRole="CustomerApplication" ToRole="CustomerDocument" />
+    <NavigationProperty Name="LoanAccounts" Relationship="Self.FK__LoanAccou__AppID__173876EA" FromRole="CustomerApplication" ToRole="LoanAccount" />
+    <NavigationProperty Name="TrackStatus" Relationship="Self.FK__TrackStat__Appli__1A14E395" FromRole="CustomerApplication" ToRole="TrackStatus" />
+  </EntityType>
+  <EntityType Name="LoanAccount">
+    <Key>
+      <PropertyRef Name="AccountNumber" />
+    </Key>
+    <Property Name="AccountNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Balance" Type="Double" Nullable="false" />
+    <Property Name="PrincipleAmount" Type="Double" Nullable="false" />
+    <Property Name="EMIStartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EMIEndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EMINextDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EMI_Installment" Type="Double" Nullable="false" />
+    <Property Name="AdminID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TenureRemaining" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Admin" Relationship="Self.FK__LoanAccou__Admin__182C9B23" FromRole="LoanAccount" ToRole="Admin" />
+    <NavigationProperty Name="CustomerApplication" Relationship="Self.FK__LoanAccou__AppID__173876EA" FromRole="LoanAccount" ToRole="CustomerApplication" />
+  </EntityType>
+  <EntityType Name="CustomerDocument">
+    <Key>
+      <PropertyRef Name="ApplicationID" />
+    </Key>
+    <Property Name="ApplicationID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PanCard" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="VoterID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SalarySlip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LOA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BuilderNOC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SaleAgreement" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AdminID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="BankAccount_Statement" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Admin" Relationship="Self.FK__CustomerD__Admin__398D8EEE" FromRole="CustomerDocument" ToRole="Admin" />
+    <NavigationProperty Name="CustomerApplication" Relationship="Self.FK__CustomerD__Appli__38996AB5" FromRole="CustomerDocument" ToRole="CustomerApplication" />
+  </EntityType>
+  <EntityType Name="TrackStatu">
+    <Key>
+      <PropertyRef Name="Contact" />
+      <PropertyRef Name="AppointmentDate" />
+      <PropertyRef Name="LoanStatus" />
+    </Key>
+    <Property Name="ApplicationID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="AdminID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AppointmentDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LoanStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LoanApprovalDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Admin" Relationship="Self.FK__TrackStat__Admin__1B0907CE" FromRole="TrackStatus" ToRole="Admin" />
+    <NavigationProperty Name="CustomerApplication" Relationship="Self.FK__TrackStat__Appli__1A14E395" FromRole="TrackStatus" ToRole="CustomerApplication" />
+  </EntityType>
+  <Association Name="FK__CustomerD__Admin__398D8EEE">
+    <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+    <End Role="CustomerDocument" Type="Self.CustomerDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="CustomerDocument">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoanAccou__Admin__182C9B23">
+    <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+    <End Role="LoanAccount" Type="Self.LoanAccount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="LoanAccount">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TrackStat__Admin__1B0907CE">
+    <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+    <End Role="TrackStatus" Type="Self.TrackStatu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="TrackStatus">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CustomerA__Email__1273C1CD">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="CustomerApplication" Type="Self.CustomerApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="EmailID" />
+      </Principal>
+      <Dependent Role="CustomerApplication">
+        <PropertyRef Name="EmailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CustomerD__Appli__38996AB5">
+    <End Role="CustomerApplication" Type="Self.CustomerApplication" Multiplicity="1" />
+    <End Role="CustomerDocument" Type="Self.CustomerDocument" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerApplication">
+        <PropertyRef Name="ApplicationID" />
+      </Principal>
+      <Dependent Role="CustomerDocument">
+        <PropertyRef Name="ApplicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoanAccou__AppID__173876EA">
+    <End Role="CustomerApplication" Type="Self.CustomerApplication" Multiplicity="0..1" />
+    <End Role="LoanAccount" Type="Self.LoanAccount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerApplication">
+        <PropertyRef Name="ApplicationID" />
+      </Principal>
+      <Dependent Role="LoanAccount">
+        <PropertyRef Name="AppID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TrackStat__Appli__1A14E395">
+    <End Role="CustomerApplication" Type="Self.CustomerApplication" Multiplicity="0..1" />
+    <End Role="TrackStatus" Type="Self.TrackStatu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerApplication">
+        <PropertyRef Name="ApplicationID" />
+      </Principal>
+      <Dependent Role="TrackStatus">
+        <PropertyRef Name="ApplicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HomeLoanEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="CustomerApplications" EntityType="Self.CustomerApplication" />
+    <EntitySet Name="LoanAccounts" EntityType="Self.LoanAccount" />
+    <EntitySet Name="CustomerDocuments" EntityType="Self.CustomerDocument" />
+    <EntitySet Name="TrackStatus" EntityType="Self.TrackStatu" />
+    <AssociationSet Name="FK__CustomerD__Admin__398D8EEE" Association="Self.FK__CustomerD__Admin__398D8EEE">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="CustomerDocument" EntitySet="CustomerDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoanAccou__Admin__182C9B23" Association="Self.FK__LoanAccou__Admin__182C9B23">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="LoanAccount" EntitySet="LoanAccounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TrackStat__Admin__1B0907CE" Association="Self.FK__TrackStat__Admin__1B0907CE">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="TrackStatus" EntitySet="TrackStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CustomerA__Email__1273C1CD" Association="Self.FK__CustomerA__Email__1273C1CD">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="CustomerApplication" EntitySet="CustomerApplications" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CustomerD__Appli__38996AB5" Association="Self.FK__CustomerD__Appli__38996AB5">
+      <End Role="CustomerApplication" EntitySet="CustomerApplications" />
+      <End Role="CustomerDocument" EntitySet="CustomerDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoanAccou__AppID__173876EA" Association="Self.FK__LoanAccou__AppID__173876EA">
+      <End Role="CustomerApplication" EntitySet="CustomerApplications" />
+      <End Role="LoanAccount" EntitySet="LoanAccounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TrackStat__Appli__1A14E395" Association="Self.FK__TrackStat__Appli__1A14E395">
+      <End Role="CustomerApplication" EntitySet="CustomerApplications" />
+      <End Role="TrackStatus" EntitySet="TrackStatus" />
+    </AssociationSet>
+    <FunctionImport Name="proc_changePass">
+      <Parameter Name="aid" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_changeStatus">
+      <Parameter Name="aid" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_getLoan" ReturnType="Collection(HomeLoanModel.proc_getLoan_Result)">
+      <Parameter Name="aid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_changeCustomerPass">
+      <Parameter Name="aid" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_viewStatus" ReturnType="Collection(HomeLoanModel.proc_viewStatus_Result)">
+      <Parameter Name="aid" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="proc_getLoan_Result">
+    <Property Type="String" Name="ApplicationID" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Contact" Nullable="false" MaxLength="30" />
+    <Property Type="DateTime" Name="AppointmentDate" Nullable="false" />
+    <Property Type="String" Name="LoanStatus" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="proc_viewStatus_Result">
+    <Property Type="String" Name="ApplicationID" Nullable="true" MaxLength="30" />
+    <Property Type="DateTime" Name="AppointmentDate" Nullable="false" />
+    <Property Type="String" Name="LoanStatus" Nullable="false" MaxLength="30" />
+  </ComplexType>
+</Schema>

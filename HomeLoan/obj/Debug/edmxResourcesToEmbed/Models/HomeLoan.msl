@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HomeLoanModelStoreContainer" CdmEntityContainer="HomeLoanEntities2">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="HomeLoanModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="HomeLoanModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerApplications">
+      <EntityTypeMapping TypeName="HomeLoanModel.CustomerApplication">
+        <MappingFragment StoreEntitySet="CustomerApplication">
+          <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="AadharNo" ColumnName="AadharNo" />
+          <ScalarProperty Name="PanNo" ColumnName="PanNo" />
+          <ScalarProperty Name="PropertyLocation" ColumnName="PropertyLocation" />
+          <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
+          <ScalarProperty Name="EstimatedAmount" ColumnName="EstimatedAmount" />
+          <ScalarProperty Name="Type_Of_Employment" ColumnName="Type_Of_Employment" />
+          <ScalarProperty Name="RetirementAge" ColumnName="RetirementAge" />
+          <ScalarProperty Name="OrganizationType" ColumnName="OrganizationType" />
+          <ScalarProperty Name="EmployerName" ColumnName="EmployerName" />
+          <ScalarProperty Name="MonthlyIncome" ColumnName="MonthlyIncome" />
+          <ScalarProperty Name="Current_EMI" ColumnName="Current_EMI" />
+          <ScalarProperty Name="Personal_Expenses" ColumnName="Personal_Expenses" />
+          <ScalarProperty Name="InterestRate" ColumnName="InterestRate" />
+          <ScalarProperty Name="Tenure" ColumnName="Tenure" />
+          <ScalarProperty Name="DownPayment" ColumnName="DownPayment" />
+          <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+          <ScalarProperty Name="AppointmentDateTentative" ColumnName="AppointmentDateTentative" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoanAccounts">
+      <EntityTypeMapping TypeName="HomeLoanModel.LoanAccount">
+        <MappingFragment StoreEntitySet="LoanAccount">
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="PrincipleAmount" ColumnName="PrincipleAmount" />
+          <ScalarProperty Name="EMIStartDate" ColumnName="EMIStartDate" />
+          <ScalarProperty Name="EMIEndDate" ColumnName="EMIEndDate" />
+          <ScalarProperty Name="EMINextDate" ColumnName="EMINextDate" />
+          <ScalarProperty Name="EMI_Installment" ColumnName="EMI/Installment" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="TenureRemaining" ColumnName="TenureRemaining" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerDocuments">
+      <EntityTypeMapping TypeName="HomeLoanModel.CustomerDocument">
+        <MappingFragment StoreEntitySet="CustomerDocument">
+          <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+          <ScalarProperty Name="PanCard" ColumnName="PanCard" />
+          <ScalarProperty Name="VoterID" ColumnName="VoterID" />
+          <ScalarProperty Name="SalarySlip" ColumnName="SalarySlip" />
+          <ScalarProperty Name="LOA" ColumnName="LOA" />
+          <ScalarProperty Name="BuilderNOC" ColumnName="BuilderNOC" />
+          <ScalarProperty Name="SaleAgreement" ColumnName="SaleAgreement" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="BankAccount_Statement" ColumnName="BankAccount_Statement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrackStatus">
+      <EntityTypeMapping TypeName="HomeLoanModel.TrackStatu">
+        <MappingFragment StoreEntitySet="TrackStatus">
+          <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+          <ScalarProperty Name="LoanStatus" ColumnName="LoanStatus" />
+          <ScalarProperty Name="LoanApprovalDate" ColumnName="LoanApprovalDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="proc_changePass" FunctionName="HomeLoanModel.Store.proc_changePass" />
+    <FunctionImportMapping FunctionImportName="proc_changeStatus" FunctionName="HomeLoanModel.Store.proc_changeStatus" />
+    <FunctionImportMapping FunctionImportName="proc_getLoan" FunctionName="HomeLoanModel.Store.proc_getLoan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HomeLoanModel.proc_getLoan_Result">
+          <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+          <ScalarProperty Name="LoanStatus" ColumnName="LoanStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="proc_changeCustomerPass" FunctionName="HomeLoanModel.Store.proc_changeCustomerPass" />
+    <FunctionImportMapping FunctionImportName="proc_viewStatus" FunctionName="HomeLoanModel.Store.proc_viewStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HomeLoanModel.proc_viewStatus_Result">
+          <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+          <ScalarProperty Name="LoanStatus" ColumnName="LoanStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
