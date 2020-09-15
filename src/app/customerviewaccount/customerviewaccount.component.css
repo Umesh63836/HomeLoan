@@ -1,0 +1,28 @@
+section{
+    width:450px;
+    position: relative;
+    left: 300px;
+}
+
+#d1{
+    width:450px;
+    position: relative;
+    left: 300px;
+}
+
+#d2{
+    width:450px;
+    position: relative;
+    left: 300px;
+}
+#b{
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    }
+    
+    #t{
+        position: fixed;
+        top:0;
+        width: 100%;
+    }

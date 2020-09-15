@@ -1,0 +1,17 @@
+#propertydetails{
+    margin-top: 90px;
+    margin-bottom: 300px;
+    margin-left: 400px;
+    margin-right: 400px;
+}
+#b{
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    }
+    
+    #t{
+        position: fixed;
+        top:0;
+        width: 100%;
+    }

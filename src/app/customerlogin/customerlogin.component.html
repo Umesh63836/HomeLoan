@@ -1,0 +1,46 @@
+<nav id="t" class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" routerLink="/">Back to home</a>
+      <a class="nav-item nav-link" routerLink="/features">Features</a>
+      <a class="nav-item nav-link" routerLink="/calculators">Calculators</a>
+      <a class="nav-item nav-link" routerLink="/documents">Documents</a>
+      <a class="nav-item nav-link" routerLink="/faq">FAQ</a>
+  </div>
+  </nav>
+
+<div id="d">
+    <h3><b>Login</b></h3><hr><br>
+   <i>Enter your Credentials :</i>
+    <br>
+    <br>   
+            <label>Email ID: </label>
+            <input type="text" required class="form-control" [(ngModel)]="customer.email">
+            <br>
+            <span class="label label-default">Password: </span>
+            <input type="password" required class="form-control" [(ngModel)]="customer.password">
+            <br>
+            <hr color="black">
+            <button class="btn btn-primary btn" (click)="checkLogin()" > Login </button> 
+            <br><br>
+            <!-- <div *ngIf="result==1"><a routerLink="/customerafterlogin">Go to your account</a></div> -->
+            <div *ngIf="result==0"><a routerLink="">Wrong Credientials!! Try again</a></div>
+            
+            <nav class="navbar navbar-expand-sm bg-light">
+                <ul class="navbar-nav">
+                
+                  <li class="nav-item">
+                  <a class="nav-link" routerLink="/customerchangepassword"><b>Forgot Password &nbsp;&nbsp;</b></a></li><br>
+               
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/userregister"><b>Not registered yet? Register here</b></a></li>
+                </ul>
+                  </nav>
+                
+<!--     
+    <div *ngIf="result">
+        Login success !
+        
+        
+    </div>   -->
+
+    </div>

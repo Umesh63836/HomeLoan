@@ -1,0 +1,23 @@
+
+<div id="account">
+<p>Account Details</p>
+
+<ul class="list-group">
+    <li class="list-group-item">Account number: <span class="badge">{{loanAccount.AccountNumber}}</span></li>
+    <li class="list-group-item">Balance: <span class="badge">{{loanAccount.Balance}}</span></li>
+</ul><br/>
+    <div class="container">
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Loan Details +</button>
+        <div id="demo" class="collapse">
+            <ul class="list-group">
+                <li class="list-group-item">Principle Amount: <span class="badge">{{loanAccount.PrincipleAmount}}</span></li>
+                <li class="list-group-item">EMI Value:<span class="badge">{{loanAccount.EMI_Installment}}</span></li>
+                <li class="list-group-item">Start date: <span class="badge">{{loanAccount.EMIStartDate}}</span></li>
+                <li class="list-group-item">End date: <span class="badge">{{loanAccount.EMIEndDate}}</span></li>
+                <li class="list-group-item">Next date: <span class="badge">{{loanAccount.EMINextDate}}</span></li>
+                <li class="list-group-item">Remaining Tenure: <span class="badge">{{loanAccount.TenureRemaining}}</span></li>
+            </ul>
+        </div>
+      </div>
+  
+    </div>

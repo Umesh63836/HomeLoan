@@ -1,0 +1,19 @@
+#d{
+    left:400px;
+    width: 400px;
+    position: relative;
+   
+    top:100px;
+    
+}
+#b{
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    }
+    
+    #t{
+        position: fixed;
+        top:0;
+        width: 100%;
+    }

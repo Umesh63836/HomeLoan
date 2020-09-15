@@ -1,0 +1,50 @@
+<nav id="t" class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav">
+        
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+      </div>
+  </nav>
+
+
+<section id="s2">
+    <section id="s1"><br><br>
+       <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        HOME LOAN - ADMIN PORTAL</h2><br>
+
+       <i><h3><b>Hello Admin...</b></h3></i>
+       <i><h4><b>Proceed further for following...</b></h4>    </i>
+       <b><i><h5>* To view Customers submitted Home Loan Applications </h5> </i></b>
+       <b><i><h5>* To view Customers Home Loan Application's Track Status</h5></i></b>
+       <b><i><h5>* To update Customers Application's Track Status&nbsp;</h5></i></b>
+        <br>
+    </section>
+
+</section>
+
+<article>
+
+
+<div id="d1">
+<ul>
+
+
+    <div [ngSwitch]="choice">
+
+        <nav class="navbar navbar-expand-sm bg-light">
+      <ul class="navbar-nav">
+      
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/adminshowapp"><b>View Customers Home Loan Applications</b></a></li>
+      
+            <li class="nav-item">
+            <a class="nav-link" routerLink="/adminshowloan"><b>View Customers Home Loan Status</b> </a></li>
+      </ul>
+        </nav>
+    </div>    
+</ul>
+</div> 
+</article>
+
+
+

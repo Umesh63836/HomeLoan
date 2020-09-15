@@ -1,0 +1,46 @@
+<nav id="t" class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" routerLink="/">Back to home</a>
+      
+      <a class="nav-item nav-link" (click)="logout()">Logout</a>
+  </div>
+  </nav>
+
+
+<section>
+    <form [formGroup]="accountview">
+        <h3>Customer Loan Account :</h3><br>
+        <i>Enter your Application ID, to view account details</i><br>
+        
+        
+          <label>Application Id:- </label>
+          <input type="text" class="form-control" formControlName="appid">
+             
+            <br>
+        
+            <button class="btn btn-danger" (click)="viewAccount()">Verify</button>
+            
+    </form>
+    
+    </section>
+
+    
+<div id="d1" *ngIf="flag==1">
+  <br>
+
+  <li> <b>Loan Account Details :</b><br></li><br>
+  Account Number: {{accountById.AccountNumber}} <br>
+  Application Id : {{accountById.AppID}}<br>
+  Balance : Rs {{accountById.Balance}}<br>
+  EMINextDate : {{accountById.EMINextDate}}<br>
+  EMIEndDate : {{accountById.EMIEndDate}}<br>
+  Tenure Remaining: {{accountById.TenureRemaining}}
+   <hr color="black">
+  
+  
+  </div>
+
+  <div id="d2" *ngIf="flag==0">
+<br>
+<li>try Again,No such account exists...</li>
+  </div>

@@ -1,0 +1,49 @@
+<nav id="t" class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" routerLink="/customerafterlogin">Back to home</a>
+      
+      <a class="nav-item nav-link" (click)="logout()">Logout</a>
+  </div>
+  </nav>
+<section id="account">
+<section>
+    <form [formGroup]="loanview">
+        <h3><b>Track your Loan Status </b></h3><br>
+        
+        <label >Application Number : </label>
+            <input type="text" class="form-control" formControlName="appid"><br>
+        
+          <label>Contact Number: </label>
+          <input type="text" class="form-control" formControlName="pno">
+             
+            <br>
+        
+            <button class="btn btn-danger" (click)="viewLoan()">Verify</button>
+            
+  </form>
+    
+</section>
+
+<hr color="black">
+  <div id="d1" *ngIf="flag==1">
+      
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">
+         Loan Application Status :
+        </a>
+        <a href="#" class="list-group-item list-group-item-action"><b>Application Id : </b>{{loanById.ApplicationID}}</a>
+        <a href="#" class="list-group-item list-group-item-action"><b>Appointment Date: </b>{{loanById.AppointmentDate}}</a>
+        <a href="#" class="list-group-item list-group-item-action"><b>Loan Status: </b>{{loanById.LoanStatus}}</a>
+        
+      </div>
+
+      <!-- <i> Customer Loan Application Status :<br></i><br><br>
+    
+
+      Application Id : {{loanById.ApplicationID}} <br>
+      Appointment Date: {{loanById.AppointmentDate}}<br>
+      Loan Status: {{loanById.LoanStatus}}      -->
+ </div>
+ <!-- <div  *ngIf="!flag">Please check Application Id and try again!!!
+</div> -->
+</section>

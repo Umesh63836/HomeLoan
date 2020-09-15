@@ -1,0 +1,20 @@
+<nav id="t" class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" routerLink="/customerlogin">Login</a>
+        <a class="nav-item nav-link" routerLink="/calculators">Calculators</a>
+        <a class="nav-item nav-link" routerLink="/faq">FAQ</a>
+      </div>
+  </nav>
+
+<div id="status">
+    <p>Application Details</p>
+    
+    <ul class="list-group">
+        <li class="list-group-item">Application Id: <span class="badge">{{applicationId}}</span></li>
+        <li class="list-group-item">Contact Number: <span class="badge">{{contact}}</span></li>
+        <li class="list-group-item">Status: <span class="badge">{{loanStatus}}</span></li>
+        <li class="list-group-item">Appointment Date(tentative): <span class="badge">{{date}}</span></li>
+    </ul>    
+</div>
+    

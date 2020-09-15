@@ -1,0 +1,49 @@
+<nav id="t" class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/">Home</a>
+      <a class="nav-item nav-link" routerLink="/aboutus">About Us</a>
+      <a class="nav-item nav-link" routerLink="/customerlogin">Apply Now</a>
+      <a class="nav-item nav-link" routerLink="/customerlogin">Login</a>
+      <a class="nav-item nav-link" routerLink="/calculators">Back to Calculators</a>
+      <a class="nav-item nav-link" routerLink="/faq">FAQ</a>
+    </div>
+</nav>
+<div id="calc">
+<div>
+    <div style="text-align:center;" ><b><h2>Eligiblity Calculator </h2></b></div><br>
+    <div class="form-group">
+        <label>Net Monthly Income (Rs.)</label>
+    <input  [(ngModel)]='salary' type="number" name="MonthlyIncome" class="form-control"><br>
+    <label>Interest Rate (% Per Annum)</label>
+    <input  [(ngModel)]='interest' type="number" name="InterestRate" class="form-control">
+    
+    </div>
+    <div class="">
+        <button (click)="calEligibility()"class="btn btn-success">Calculate</button>
+    </div><br><br><hr>
+    <div>
+        <label><b>Loan Amount: Rs.</b></label>&nbsp;
+        <span><b>{{LoanAmount}}</b></span>
+        <h4></h4>
+    </div>
+</div> 
+</div>
+
+<!-- 
+<div >
+    <h3 style="text-align: center;"><b>Eligiblity Calculator </b></h3>
+    <form class="form-inline">
+        <div class="form-group">
+          <label for="inputi">Net Monthly Income</label>
+          <input type="number" [(ngModel)]='salary' id="inputi" class="form-control mx-sm-3"><br>
+          <label for="inputr">Interest Rate</label>
+          <input type="number" [(ngModel)]='interest' id="inputr" class="form-control mx-sm-3">
+            <br>
+            <button (click)="calEligibility()"class="btn btn-success">Calculate</button>
+            <br><br/><hr>
+            <label>Loan Amount:</label>
+          <span><b>{{LoanAmount}}</b></span>
+        </div>
+      </form>
+
+</div> -->

@@ -1,0 +1,99 @@
+<div id="loandetails">
+    <nav id="t" class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" routerLink="/">Home</a>
+            <a class="nav-item nav-link" routerLink="/customerlogin">Login</a>
+            <a class="nav-item nav-link" routerLink="/calculators">Calculators</a>
+            <a class="nav-item nav-link" routerLink="/faq">FAQ</a>
+          </div>
+      </nav>
+    <h2>Application Form</h2>
+<nav aria-label="...">
+<ul class="pagination">
+    <li class="page-item disabled"><span class="page-link">1</span></li>
+    
+    <li class="page-item disabled"><a class="page-link" href="#">2</a></li>
+    
+    
+    <li class="page-item disabled"><a class="page-link" href="#">3</a></li>
+    <li class="page-item active"><span class="page-link">4<span class="sr-only">(current)</span></span>
+    </li>
+    <li class="page-item disabled"><a class="page-link" href="#">5</a></li>
+  </ul>
+</nav>
+<br>
+<b>
+Loan details</b><hr>
+<form [formGroup]="loanForm">
+    <table>
+        <tr>
+            <td><label>Maximum Loan Grantable</label></td>
+            <td>Rs.&nbsp;{{maxLoanr}}</td>
+        </tr>
+
+        <tr>
+            <td><label>Interest Rate</label></td>
+            <td>{{rate}}&nbsp;%</td>
+        </tr>
+
+        <tr>
+            <td><label>Maximum Tenure Applicable</label></td>
+            <td>{{maxTenure}}&nbsp;months</td>
+        </tr>
+
+        <tr>
+
+            <td><label>Loan Amount(Rs.)</label></td>
+            <td><input type="text" placeholder="Enter Loan Amount(Less than max loan grantable)" formControlName="loanAmtCtrl"/><br><span>{{invalidlm1}}</span><br><span>{{invalidlm2}}</span>
+                <p class="alert alert-danger" *ngIf="loanAmtCtrl.touched && loanAmtCtrl.invalid">
+                    <span class="alert alert-danger" *ngIf="loanAmtCtrl.errors.required">Please enter Loan Amount required</span>
+                </p>
+                <!-- <p>
+                    <span class="alert alert-danger" *ngIf="loanAmtCtrl.errors.max">Loan amount should be less than Max. Loan grantable and 80% of property value</span>
+                </p> -->
+            </td>
+        </tr>
+
+        <tr>
+            <td><label>Tenure(In Months)</label></td>
+            <td><input type="number" placeholder="Enter Tenure in months(Less than max tenure applicable)" formControlName="tenureCtrl"/><br><span>{{invalidtenure}}</span>
+                <p class="alert alert-danger" *ngIf="tenureCtrl.touched && tenureCtrl.invalid">
+                    <span class="alert alert-danger" *ngIf="tenureCtrl.errors.required">Please enter tenure</span>
+                </p>
+                <!-- <p>
+                    <span class="alert alert-danger" *ngIf="tenureCtrl.errors.max">Tenure should be less than Max. Tenure applicable</span>
+                </p> -->
+            </td>
+        </tr>
+
+
+        <tr>
+            <td><label>Down Payment(Rs.)</label></td>
+            <td><input type="number" placeholder="More than or equal to 20% of property value" formControlName="downPaymentCtrl" /><br><span>{{invaliddp}}</span>
+                <p class="alert alert-danger" *ngIf="downPaymentCtrl.touched && downPaymentCtrl.invalid">
+                    <span class="alert alert-danger" *ngIf="downPaymentCtrl.errors.required">Please enter downpayment</span>
+                </p>
+                <!-- <p>
+                    <span class="alert alert-danger" *ngIf="downPaymentCtrl.errors.min">Downpayment should be more than or equal to 20% of Property value</span>
+                </p> -->
+            </td>
+        </tr>
+
+
+    </table>
+
+
+</form>
+<br>
+<div>
+    <button class="btn btn-outline-success btn-sm" (click)="postApplication()" >Save and Next</button><p *ngIf="flag==1">Some fields are not valid!!!</p>
+</div>
+<br>
+<div class="progress">
+    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60"
+    aria-valuemin="0" aria-valuemax="100" style="width:60%">
+      60% Complete
+    </div>
+  </div>
+</div>
+

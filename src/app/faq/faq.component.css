@@ -1,0 +1,16 @@
+#r{
+    margin: 100px;
+    height:200px;
+   }
+
+#b{
+position: fixed;
+bottom:0;
+width: 100%;
+}
+
+#t{
+    position: fixed;
+    top:0;
+    width: 100%;
+}

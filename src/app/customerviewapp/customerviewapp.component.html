@@ -1,0 +1,99 @@
+<nav id="t" class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/customerafterlogin">Back to home</a>
+        
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+    </nav>
+
+
+<section id="account">
+<section>
+    
+    <h3><li><b>Applications details</b></li></h3>
+    <form [formGroup]="customerapp">
+        <label>Enter Application ID : </label>&nbsp;&nbsp;
+            <input type="text" formControlName="appid"><br>    
+            <br>
+            <button Class="btn btn-primary btn-sm" (click)="fetchApplications()"> Click To View </button>
+            <hr color="black">
+    </form>
+    <br>
+    </section>
+    
+    
+    <div *ngIf="flag">
+       <br>
+        
+       <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">
+            Personal Details
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">Application Id: {{applicationid}}</a>
+        <a href="#" class="list-group-item list-group-item-action">Gender : {{applicationById.Gender}}</a>
+        <a href="#" class="list-group-item list-group-item-action">Nationality : {{applicationById.Nationality}}</a>
+        <a href="#" class="list-group-item list-group-item-action">Aadhar Number : {{applicationById.AadharNo}}</a>
+        <a href="#" class="list-group-item list-group-item-action">Pan Number : {{applicationById.PanNo}}</a>
+      </div>
+
+       <!-- <li> Customer Details :<br></li>
+        Application Id: {{applicationById.ApplicationID}} <br>
+        Gender : {{applicationById.Gender}}<br>
+        Nationality : {{applicationById.Nationality}}<br>
+        Aadhar Number : {{applicationById.AadharNo}}<br>
+        Pan Number : {{applicationById.PanNo}}<br> -->
+        <hr >
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active">
+                Income Details
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">Monthly Income: {{applicationById.MonthlyIncome}}</a>
+            <a href="#" class="list-group-item list-group-item-action">Type Of Employment : {{applicationById.Type_Of_Employment}}</a>
+            <a href="#" class="list-group-item list-group-item-action">Retirement Age :{{applicationById.RetirementAge}}</a>
+            <a href="#" class="list-group-item list-group-item-action">Organization Type : {{applicationById.OrganizationType}}</a>
+            <a href="#" class="list-group-item list-group-item-action">Employee Name : {{applicationById.EmployerName}}</a>
+          </div>
+    
+        
+        <!-- <li> Income Details <br> </li>
+    
+        Monthly Income: {{applicationById.MonthlyIncome}}<br>
+        Type Of Employment : {{applicationById.Type_Of_Employment}}<br>
+        Retirement Age :{{applicationById.RetirementAge}}<br>
+        Organization Type : {{applicationById.OrganizationType}}<br>
+        Employee Name : {{applicationById.EmployerName}}<br> -->
+        <hr>
+       
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active">
+                Property Details
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">Property Location: {{applicationById.PropertyLocation}}</a>
+            <a href="#" class="list-group-item list-group-item-action">Property Name: {{applicationById.PropertyName}}</a>
+            <a href="#" class="list-group-item list-group-item-action">Estimated Amount : {{applicationById.EstimatedAmount}}</a>
+          </div>
+
+        <!-- <li>Property Details :<br></li>
+        Property Location: {{applicationById.PropertyLocation}}<br>  
+        Property Name: {{applicationById.PropertyName}}<br>
+        Estimated Amount : {{applicationById.EstimatedAmount}}<br> -->
+        <hr>
+        
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active">
+                Loan Details
+            </a>
+        <a href="#" class="list-group-item list-group-item-action">Loan Amount : {{applicationById.LoanAmount}}</a>
+        <a href="#" class="list-group-item list-group-item-action">Current EMI: {{applicationById.Current_EMI}}</a>
+        <a href="#" class="list-group-item list-group-item-action">Tenure: {{applicationById.Tenure}}</a>
+
+
+        <!-- <li> Loan Details :<br> </li>
+        Loan Amount :{{applicationById.LoanAmount}}<br> 
+        Current EMI: {{applicationById.Current_EMI}}<br>
+        Tenure: {{applicationById.Tenure}}<br> -->
+        
+        <hr>
+       </div>
+       </div>
+    </section>

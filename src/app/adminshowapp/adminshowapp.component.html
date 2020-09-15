@@ -1,0 +1,117 @@
+<nav id="t" class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/adminloginscreen">Back to home</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+      </div>
+  </nav>
+<section>
+    <br><br>
+<h3><b>View Submitted Applications</b></h3>
+
+     <i>Click, to view Customers' Submmitted Applications.. &nbsp;</i> 
+<button Class="btn btn-danger btn-sm" (click)="fetchApplications()"> Click To View </button><br>
+<hr color="black">
+<nav class="navbar navbar-expand-sm bg-light">
+    <ul class="navbar-nav">
+    
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/adminloginscreen"><b>Back To Home</b></a></li>
+    </ul>
+      </nav>
+
+
+
+</section>
+
+<br><br>
+<div id="e" *ngFor="let m of applications">
+    <br>
+<b><i><li>Personal Details :</li></i></b><br>
+  
+
+   <table>
+       <tr>
+           <th>Application ID</th>
+           <th>Gender </th>
+           <th>Nationality </th>
+           <th>Aadhar Number </th>
+           <th>Pan Number </th>
+       </tr>
+       <tr>
+           <td>{{m.ApplicationID}}</td>
+           <td>{{m.Gender}}</td>
+           <td>{{m.Nationality}}</td>
+           <td>{{m.AadharNo}}</td>
+           <td>{{m.PanNo}}</td>
+       </tr>
+   </table>
+
+   
+   <br>
+   <br>
+   <b><i><li>Income Details</li></i></b>
+ <br><br>
+  <table>
+      <tr>
+          <th>Monthly Income</th>
+          <th>Type Of Employment</th>
+          <th>Retirement Age</th>
+          <th>Organization Type</th>
+          <th>Current EMI</th>
+          <th>Employee Name</th>
+          
+      </tr>
+      <tr>
+          <td>Rs {{m.MonthlyIncome}}</td>
+          <td>{{m.Type_Of_Employment}}</td>
+            <td>{{m.RetirementAge}}</td>
+            <td>{{m.OrganizationType}}</td>
+          <td>Rs {{m.Current_EMI}}</td>
+          <td>{{m.EmployerName}}</td>
+          
+      </tr>
+      
+  </table>
+
+
+   <br>
+   <b><li><i>Property Details :</i></li></b>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>Property Location</th>
+            <th>Property Name</th>
+            <th>EstimatedAmount</th>    
+           
+        </tr>
+        <tr>
+            <td>{{m.PropertyLocation}}</td>
+            <td>{{m.PropertyName}}</td>
+            <td>Rs {{m.EstimatedAmount}}</td>
+            
+           
+            
+        </tr>
+    </table>
+
+    <br>
+   <b><li><i>Loan Details :</i></li></b>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>Tenure</th>
+          <th>Loan Amount</th>   
+           
+        </tr>
+        <tr>
+            <td>{{m.Tenure}}</td>
+          <td>Rs {{m.LoanAmount}}</td>
+           
+            
+        </tr>
+    </table>
+  
+    <hr color="black" size=15px>
+   </div>

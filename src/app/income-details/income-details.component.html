@@ -1,0 +1,152 @@
+<nav id="t" class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" routerLink="/customerlogin">Login</a>
+        <a class="nav-item nav-link" routerLink="/calculators">Calculators</a>
+        <a class="nav-item nav-link" routerLink="/faq">FAQ</a>
+      </div>
+  </nav>
+
+<div id="incomedetails">
+<div>
+    <h2>Application Form</h2>
+    
+    <nav aria-label="...">
+        <ul class="pagination">
+          <li class="page-item disabled"><span class="page-link">1</span></li>
+          <li class="page-item active"><span class="page-link">2<span class="sr-only">(current)</span></span>
+          </li>
+          <li class="page-item disabled"><a class="page-link" href="#">3</a></li>
+          
+          <li class="page-item disabled"><a class="page-link" href="#">4</a></li>
+          <li class="page-item disabled"><a class="page-link" href="#">5</a></li>
+        </ul>
+      </nav>
+      <br>
+
+    <b>
+    Income details</b><br><hr>
+    <form [formGroup]="incomeForm">
+        <table>
+            <tr>
+                <td> <label>Type of Employment</label></td>
+                <td>
+                    <select name="typeOfEmpCtrl" formControlName="typeOfEmpCtrl">
+                        <option value="">-- select one --</option>
+                        <option value="salaried">Salaried</option>
+                        <option value="self-employed">Self-Employed</option>
+                    </select> </td>
+            </tr>
+
+            <tr>
+                <td><label>Retirement Age</label></td>
+                <td><input type="number" formControlName="retAgeCtrl"/>
+                    <p class="alert alert-danger" *ngIf="retAgeCtrl.touched && retAgeCtrl.invalid">
+                        <span class="alert alert-danger" *ngIf="retAgeCtrl.errors.required">Retirement age cannot be empty</span>
+                    </p>
+                   </td>
+            </tr>
+
+            <tr>
+                <td> <label>Organisation Type</label></td>
+                <td>
+                    <input type="radio" id="rdbPublic" value="public" name="orgTypeCtrl" formControlName="orgTypeCtrl" /> Public
+                    <input type="radio" id="rdbPrivate" value="private" name="orgTypeCtrl" formControlName="orgTypeCtrl" />Private
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Employer Name</label></td>
+                <td><input type="text" formControlName="empNameCtrl"/>
+                    <p class="alert alert-danger" *ngIf="empNameCtrl.touched && empNameCtrl.invalid">
+                        <span class="alert alert-danger" *ngIf="empNameCtrl.errors.required">Employer name cannot cannot be empty</span>
+                    </p></td>
+            </tr>
+            
+            <tr>
+
+                <td><label>Monthly Income</label></td>
+                
+                <td><input type="number" formControlName="monthlyIncCtrl"/><br><span>{{invalidmi}}</span>
+                    <p class="alert alert-danger" *ngIf="monthlyIncCtrl.touched && monthlyIncCtrl.invalid">
+                        <span class="alert alert-danger" *ngIf="monthlyIncCtrl.errors.required">Please enter monthly income first</span>
+                    </p>
+                    <!-- <p>
+                        <span class="alert alert-danger" *ngIf="monthlyIncCtrl.errors.min">minimum monthly income to apply for loan is 10000</span>
+                    </p></td> -->
+                </td>
+            </tr>
+
+            <tr>
+                
+                <td><label>Personal Expenses</label></td>
+                
+                <td><input type="number" formControlName="personalExpCtrl"/>
+                    <p class="alert alert-danger" *ngIf="personalExpCtrl.touched && personalExpCtrl.invalid">
+                        <span class="alert alert-danger" *ngIf="personalExpCtrl.errors.required">Please enter your personal expenses</span>
+                    </p></td>
+            </tr>
+
+            <tr>
+
+                <td><label>Work Experience/Buisness Continuity</label></td>
+                
+                <td><input type="number" formControlName="workExpCtrl"/><br><span>{{invalidwe}}</span>
+                    <p class="alert alert-danger" *ngIf="workExpCtrl.touched && workExpCtrl.invalid">
+                        <span class="alert alert-danger" *ngIf="workExpCtrl.errors.required">Please enter work experience first</span>
+                    </p>
+                    <!-- <p>
+                        <span class="alert alert-danger" *ngIf="workExpCtrl.errors.min">minimum work/buisness experience to apply for loan should be 5 years</span>
+                    </p> -->
+                </td>
+            </tr>
+
+            <tr>
+
+                <td><label>Credit Score</label></td>
+                
+                <td><input type="number" formControlName="creditScoreCtrl" /><br><span>{{invalidcs}}</span>
+                    <p class="alert alert-danger" *ngIf="creditScoreCtrl.touched && creditScoreCtrl.invalid">
+                        <span class="alert alert-danger" *ngIf="creditScoreCtrl.errors.required">Please enter creditscore</span>
+                    </p>
+                    <!-- <p>
+                        <span class="alert alert-danger" *ngIf="creditScoreCtrl.errors.min">minimum credit to apply for loan should be 750</span>
+                    </p> -->
+                </td>
+            </tr>
+            <tr>
+
+                <td><label>Current EMI</label></td>
+                
+                <td><input type="number" formControlName="cEMICtrl" />
+                    <p class="alert alert-danger" *ngIf="cEMICtrl.touched && cEMICtrl.invalid">
+                        <span class="alert alert-danger" *ngIf="cEMI.errors.required">Please enter your personal expenses</span>
+                    </p></td>
+            </tr>
+
+           
+
+        </table>
+
+        
+        
+    </form>
+
+</div>
+<br>
+<div>
+    <button class="btn btn-outline-success btn-sm" (click)="OnSave()">Save and Next</button><p *ngIf="flag==1">Some fields are not valid!!!</p>
+    <!-- <button><a routerLink="/propertydetails">Next</a></button> -->
+</div>
+<br>
+<div class="progress">
+    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
+    aria-valuemin="0" aria-valuemax="100" style="width:20%">
+      20% Complete
+    </div>
+  </div>
+</div>
+
+<!-- <div>
+    {{check}}
+</div> -->
